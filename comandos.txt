@@ -1,0 +1,11 @@
+=== ENVIAR ARQUIVOS === 
+Depois de editar algo, faça:
+- git add .
+- git commit -m "Uma Mensagem"
+- git push
+
+
+=== PUXAR ARQUIVOS === 
+- git pull
+
+
