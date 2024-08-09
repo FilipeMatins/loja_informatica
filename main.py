@@ -29,7 +29,8 @@ while True:
                 
             elif op_comprador == 2:
                 iniciar_compra(produtos)
-                pass
+            elif op_comprador == 4:
+                ver_carrinho()
             elif op_comprador == 99:
                 break
             else:
