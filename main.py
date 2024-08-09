@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-#import *
 
-=======
+#import *
 from menu import *
->>>>>>> 1820e7113986ec64a941ef3055440a35d4eae5f8
+
 # fluxo_principal()
 while True:
     login()
