@@ -16,13 +16,22 @@ class Produtos:
     preco = float
     quantidade_estoque = int
 
-    def __init__():
-        
+    def __init__(self,nome_produto,preco,quantidade_estoque):
+        nome_produto = nome_produto
+        preco = preco
+        quantidade_estoque = quantidade_estoque
 
 class Usuario:
     nome = ''
 
+    def __init__(self,nome):
+        nome = nome
+
 class Admin:
     nome = ''
     codigo_adm = int
+
+    def __init__(self,nome,codigo_adm):
+        nome = nome
+        codigo_adm = codigo_adm
 
