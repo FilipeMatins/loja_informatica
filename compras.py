@@ -15,10 +15,9 @@ while op.upper() !='N':
         qtd = int(input('Por favor, redefina a quantidade: '))
     prod = produtos[cod_pro-1].nome_produto
     valor_unit = produtos[cod_pro-1].preco
-    #Definir campos da classe produto para percorrer a lista: Nome, preço e qtd_estoque
-    item = Itens(qtd, prod, valor_unit) #Adicionar objeto itens a uma lista que será o carrinho
+    item = Itens(prod, qtd, valor_unit)
     carrinho.append(item)
-    #Baixar a quantidade em estoque
+    produtos[cod_pro-1].quantidade_estoque = produtos[cod_pro-1].quantidade_estoque - qtd #Baixar a quantidade em estoque
     op = input('Deseja continuar (s/n): ')
 os.system("cls")
 print(50*'-')
