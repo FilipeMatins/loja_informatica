@@ -1,4 +1,4 @@
-#import **
+#import *
 
 # fluxo_principal()
 while True:
@@ -15,7 +15,6 @@ while True:
             elif op_adm == 2:
                 #função
                 pass
-
             elif op_adm == 99:
                 break
             else:
@@ -31,7 +30,6 @@ while True:
             elif op_adm == 2:
                 #função
                 pass
-
             elif op_adm == 99:
                 break
             else:
