@@ -3,7 +3,7 @@ from menus import *
 # fluxo_principal()
 while True:
     login()
-    op= int (input('Escolha uma opção: '))
+    op = int(input('Escolha uma opção: '))
 
     if op == 1:
         while True:
