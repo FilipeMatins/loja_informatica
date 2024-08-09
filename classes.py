@@ -31,4 +31,5 @@ class Admin:
     def __init__(self,nome,codigo_adm):
         self.nome = nome
         self.codigo_adm = codigo_adm
+    
 
