@@ -1,4 +1,4 @@
-from menus import *
+from menu import *
 from classes import *
 from time import sleep
 import os
