@@ -1,3 +1,5 @@
+from cor import *
+
 class Itens:
     nome_produto = ''
     quantidade_produto = ''
@@ -17,6 +19,14 @@ class Produtos:
         self.nome_produto = nome_produto
         self.preco = preco
         self.quantidade_estoque = quantidade_estoque
+    
+    def lista_produtos(produtos):
+        cod = 1
+        green('CÓDIGO  QT. EST.  PRODUTO                 PREÇO')
+        print(50*'-')
+        for p in produtos:
+            print(f'{BLUE}{cod:^7}{RESET} {p.quantidade_estoque:^9} {p.nome_produto:<23} R$ {float(p.preco):.2f}')
+            cod += 1
 
 class Cliente:
     nome = ''
@@ -31,4 +41,5 @@ class Admin:
     def __init__(self,nome,codigo_adm):
         self.nome = nome
         self.codigo_adm = codigo_adm
+    
 

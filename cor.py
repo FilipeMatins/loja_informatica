@@ -4,12 +4,14 @@ RED = '\033[31m'
 GREEN = '\033[32m'
 BLUE = '\033[34m'
 YELLOW = '\033[33m'
+CYAN = '\033[36m'
 RESET = '\033[0m'
 
-#COLOQUE O TEXTO NO ENTRE AS VARIAVEIS PARA COLORIR
+
+#COLOQUE O TEXTO NO ENTRE AS CONSTANTES PARA COLORIR
 
 def red(txt):
-    print(f'{RED} {txt} {RESET}')
+    print(f'{RED}{txt}{RESET}')
 
 def green(txt):
     print(f'{GREEN}{txt}{RESET}')
@@ -19,3 +21,6 @@ def blue(txt):
 
 def yellow(txt):
     print(f'{YELLOW}{txt}{RESET}')
+
+def cyan(txt):
+    print(f'{CYAN}{txt}{RESET}')
