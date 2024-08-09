@@ -41,8 +41,14 @@ def ver_carrinho(carrinho):
             i +=1
         print(50*'-')
         print(f'Valor total................................ R$ {total_carrinho:.2f}')
-def deletar_item(carrinho):
+def deletar_item(carrinho, produtos):
     ver_carrinho(carrinho)
     d = int(input('Escolha um item para deletar->'))
+    qtd = carrinho[d-1].quantidade_produto
+    for p in produtos:
+        if p.nome_produto == carrinho[d-1].nome_produto:
+            estoque = int(p.quantidade_estoque)+int(qtd)
+            print(estoque)
+            p.quantidade_estoque = estoque
     carrinho.pop(d-1)
     ver_carrinho(carrinho)

@@ -31,7 +31,7 @@ while True:
             elif op_comprador == 2:
                 carrinho = iniciar_compra(produtos, carrinho)
             elif op_comprador == 3:
-                deletar_item(carrinho)
+                deletar_item(carrinho, produtos)
             elif op_comprador == 4:
                 ver_carrinho(carrinho)
             elif op_comprador == 99:
