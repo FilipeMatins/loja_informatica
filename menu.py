@@ -2,13 +2,13 @@ from cor import *
 import os
 
 def login():
-    yellow('>>> MENU PRINCIPAL <<<')
+    yellow('\n>>> MENU PRINCIPAL <<<')
     print(f'{YELLOW}1{RESET} - Cliente')
     print(f'{YELLOW}2{RESET} - ADM')
     print(f'{YELLOW}0{RESET} - SAIR')
 
 def menu_loja():
-    yellow('>>> MENU PRODUTOS <<<')
+    yellow('\n>>> MENU PRODUTOS <<<')
     print(f'{YELLOW}1{RESET} - Listar Produtos')
     print(f'{YELLOW}2{RESET} - Adicionar Produto')
     print(f'{YELLOW}3{RESET} - Remover Produto')

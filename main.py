@@ -53,7 +53,13 @@ while True:
                 break
             else:
                 print ('opção Inválida')
+
+    elif op == 0:
+        limpa_tela()
+        green('Saindo...\nAté Breve')
+        break
     
     else:
-        break
+        limpa_tela()
+        red('> Opção Inválida')
 
