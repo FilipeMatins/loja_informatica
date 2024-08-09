@@ -1,14 +1,12 @@
-#import **
-from menus import *
+from menu import *
 # fluxo_principal()
 while True:
     login()
     op = int(input('Escolha uma opção: '))
-
     if op == 1:
         while True:
             #menu_adm()
-            op_adm= int('Escolha uma opção: ')
+            op_adm = int(input('Escolha uma opção: '))
             if op_adm == 1:
                 #função
                 pass
@@ -24,7 +22,7 @@ while True:
     elif op == 2:
         while True:
             #menu_comprador()
-            op_adm= int('Escolha uma opção: ')
+            op_adm= int(input('Escolha uma opção: '))
             if op_adm == 1:
                 #função
                 pass
