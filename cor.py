@@ -6,10 +6,10 @@ BLUE = '\033[34m'
 YELLOW = '\033[33m'
 RESET = '\033[0m'
 
-#COLOQUE O TEXTO NO ENTRE AS VARIAVEIS PARA COLORIR
+#COLOQUE O TEXTO NO ENTRE AS CONSTANTES PARA COLORIR
 
 def red(txt):
-    print(f'{RED} {txt} {RESET}')
+    print(f'{RED}{txt}{RESET}')
 
 def green(txt):
     print(f'{GREEN}{txt}{RESET}')

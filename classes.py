@@ -17,6 +17,15 @@ class Produtos:
         self.nome_produto = nome_produto
         self.preco = preco
         self.quantidade_estoque = quantidade_estoque
+    
+    def lista_produtos(produtos):
+        cod = 1
+        print(50*'-')
+        print('Código  Qt. Est.  Nome                  Preço')
+        print(50*'-')
+        for p in produtos:
+            print(f'{cod:^7} {p.quantidade_estoque:^9} {p.nome_produto:<23} R$ {float(p.preco):.2f}')
+            cod += 1
 
 class Cliente:
     nome = ''

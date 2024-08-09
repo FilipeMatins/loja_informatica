@@ -1,0 +1,21 @@
+Notebook
+3500
+20
+Mouse
+15.35
+50
+Cabo USB C
+25
+100
+Mouse Pad
+12.50
+30
+Fonte Notebook
+120
+15
+Monitor 15"
+450
+12
+Teclado
+57
+30
