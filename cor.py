@@ -17,5 +17,5 @@ def green(txt):
 def blue(txt):
     print(f'{BLUE}{txt}{RESET}')
 
-def blue(txt):
+def yellow(txt):
     print(f'{YELLOW}{txt}{RESET}')
