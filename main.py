@@ -35,7 +35,8 @@ while True:
                 deletar_item(carrinho, produtos)
             elif op_comprador == 4:
                 ver_carrinho(carrinho)
-            elif op_comprador == 99:
+            elif op_comprador == 0:
+                limpa_tela()
                 break
             else:
                 print ('Opção Inválida')
