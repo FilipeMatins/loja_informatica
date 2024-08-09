@@ -1,3 +1,5 @@
+from cor import *
+
 class Itens:
     nome_produto = ''
     quantidade_produto = ''
@@ -26,11 +28,10 @@ class Produtos:
     
     def lista_produtos(produtos):
         cod = 1
-        print(50*'-')
-        print('Código  Qt. Est.  Nome                  Preço')
+        green('CÓDIGO  QT. EST.  PRODUTO                 PREÇO')
         print(50*'-')
         for p in produtos:
-            print(f'{cod:^7} {p.quantidade_estoque:^9} {p.nome_produto:<23} R$ {float(p.preco):.2f}')
+            print(f'{BLUE}{cod:^7}{RESET} {p.quantidade_estoque:^9} {p.nome_produto:<23} R$ {float(p.preco):.2f}')
             cod += 1
 
 class Cliente:

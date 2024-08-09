@@ -7,7 +7,7 @@ def iniciar_compra(produtos, carrinho):
     while op.upper() !='N':
         os.system("cls")
         Produtos.lista_produtos(produtos)
-        print('Escolha seu produto na lista acima')
+        print('\nEscolha seu produto na lista acima')
         cod_pro = int(input('Código do produto: '))
         qtd = int(input('Quantidade: '))
         while qtd > int(produtos[cod_pro-1].quantidade_estoque):
@@ -26,12 +26,12 @@ def iniciar_compra(produtos, carrinho):
 def ver_carrinho(carrinho):
     os.system("cls")
     if len(carrinho) == 0:
-        print('O carrinho ainda está vazio')
+        green('> O carrinho ainda está vazio')
     else:
         print(50*'-')
-        print('               Carrinho de Compras:')
+        green('               CARRINHO DE COMPRAS:')
         print(50*'-')
-        print('Item  Qtd. Produto                 Valor unit.  Valor Total')
+        cyan('Item  Qtd. Produto                 Valor unit.  Valor Total')
         total_carrinho = float(0)
         i = 1
         for item in carrinho:
@@ -40,7 +40,7 @@ def ver_carrinho(carrinho):
             total_carrinho += total_item
             i +=1
         print(50*'-')
-        print(f'Valor total................................ R$ {total_carrinho:.2f}')
+        green(f'VALOR TOTAL................................ R$ {total_carrinho:.2f}')
 def deletar_item(carrinho, produtos):
     ver_carrinho(carrinho)
     d = int(input('Escolha um item para deletar->'))
