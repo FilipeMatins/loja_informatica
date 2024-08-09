@@ -8,9 +8,6 @@ class Itens:
         quantidade_produto = quantidade_produto 
         valor_produto = valor_produto
 
-    def adicionar_produto():
-        pass
-
 class Produtos:
     nome_produto = ''
     preco = float
@@ -21,7 +18,7 @@ class Produtos:
         preco = preco
         quantidade_estoque = quantidade_estoque
 
-class Usuario:
+class Cliente:
     nome = ''
 
     def __init__(self,nome):
