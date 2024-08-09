@@ -15,6 +15,7 @@ with open('lista_produtos.txt', 'r', encoding='utf-8') as list_prod:
         prod_atual = Produtos(n,p,q)
         produtos.append(prod_atual)
 # fluxo_principal()
+carrinho = []
 while True:
     login()
     op = int(input('Escolha uma opção: '))
@@ -28,9 +29,11 @@ while True:
                 Produtos.lista_produtos(produtos)
                 
             elif op_comprador == 2:
-                iniciar_compra(produtos)
+                carrinho = iniciar_compra(produtos, carrinho)
+            elif op_comprador == 3:
+                deletar_item(carrinho)
             elif op_comprador == 4:
-                ver_carrinho()
+                ver_carrinho(carrinho)
             elif op_comprador == 99:
                 break
             else:

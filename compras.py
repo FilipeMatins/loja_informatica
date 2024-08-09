@@ -2,8 +2,7 @@ from menu import *
 from classes import *
 from time import sleep
 import os
-def iniciar_compra(produtos):
-    carrinho = []
+def iniciar_compra(produtos, carrinho):
     op = 's'
     while op.upper() !='N':
         os.system("cls")
@@ -22,20 +21,28 @@ def iniciar_compra(produtos):
         q_est -= qtd #Baixar a quantidade em estoque
         produtos[cod_pro-1].quantidade_estoque = q_est
         op = input('Deseja continuar (s/n): ')
-        ver_carrinho()
-    def ver_carrinho():
-        os.system("cls")
-        if len(carrinho) == 0:
-            print('O carrinho ainda está vazio')
-        else:
-            print(50*'-')
-            print('               Carrinho de Compras:')
-            print(50*'-')
-            print('Qtd. Produto                 Valor unit.  Valor Total')
-            total_carrinho = float(0)
-            for item in carrinho:
-                total_item = float(item.valor_produto)*float(item.quantidade_produto)
-                print(f'{item.quantidade_produto:<5}{item.nome_produto:<24} R$ {float(item.valor_produto):.2f}  R$ {total_item:.2f}')
-                total_carrinho += total_item
-            print(50*'-')
-            print(f'Valor total................................ R$ {total_carrinho:.2f}')
+    ver_carrinho(carrinho)
+    return carrinho
+def ver_carrinho(carrinho):
+    os.system("cls")
+    if len(carrinho) == 0:
+        print('O carrinho ainda está vazio')
+    else:
+        print(50*'-')
+        print('               Carrinho de Compras:')
+        print(50*'-')
+        print('Item  Qtd. Produto                 Valor unit.  Valor Total')
+        total_carrinho = float(0)
+        i = 1
+        for item in carrinho:
+            total_item = float(item.valor_produto)*float(item.quantidade_produto)
+            print(f'{i:<6}{item.quantidade_produto:<5}{item.nome_produto:<24} R$ {float(item.valor_produto):.2f}  R$ {total_item:.2f}')
+            total_carrinho += total_item
+            i +=1
+        print(50*'-')
+        print(f'Valor total................................ R$ {total_carrinho:.2f}')
+def deletar_item(carrinho):
+    ver_carrinho(carrinho)
+    d = int(input('Escolha um item para deletar->'))
+    carrinho.pop(d-1)
+    ver_carrinho(carrinho)
