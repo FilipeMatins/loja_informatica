@@ -4,6 +4,8 @@ Depois de editar algo, faça:
 - git commit -m "Uma Mensagem"
 - git push
 
+OBS: Se der um erro em AMARELO, você tem que dar: - git pull
+
 
 === PUXAR ARQUIVOS === 
 - git pull
