@@ -8,7 +8,6 @@ while op.upper() !='N':
     print('Escolha seu produto:')
     cod_pro = int(input('Código do produto: '))
     qtd = int(input('Quantidade: '))
-    prod = 
     item = Item(qtd, prod, valor_unit, valor_total)
     carrinho.append(item)
     op = input('Deseja continuar (s/n): ')
