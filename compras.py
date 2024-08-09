@@ -7,7 +7,7 @@ def iniciar_compra(produtos, carrinho):
     while op.upper() !='N':
         os.system("cls")
         Produtos.lista_produtos(produtos)
-        print('Escolha seu produto na lista acima')
+        print('\nEscolha seu produto na lista acima')
         cod_pro = int(input('Código do produto: '))
         qtd = int(input('Quantidade: '))
         while qtd > int(produtos[cod_pro-1].quantidade_estoque):

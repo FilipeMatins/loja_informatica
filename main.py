@@ -29,6 +29,7 @@ while True:
                 Produtos.lista_produtos(produtos)
                 
             elif op_comprador == 2:
+                limpa_tela()
                 carrinho = iniciar_compra(produtos, carrinho)
             elif op_comprador == 3:
                 deletar_item(carrinho, produtos)
