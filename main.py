@@ -7,6 +7,7 @@ while True:
     login()
     op = int(input('Escolha uma opção: '))
     if op == 1:
+        limpa_tela()
         while True:
             menu_loja()
             op_comprador = int(input('Escolha uma opção: '))
