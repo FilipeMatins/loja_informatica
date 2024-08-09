@@ -17,6 +17,12 @@ class Produtos:
         self.nome_produto = nome_produto
         self.preco = preco
         self.quantidade_estoque = quantidade_estoque
+
+    def editar_produto(self):
+        new_nome = input("Digite o novo nome do produto: ")
+        self.nome_produto = new_nome
+        new_preco = float(input("Digite o novo preço do produto: "))
+        self.preco = new_preco
     
     def lista_produtos(produtos):
         cod = 1
@@ -40,5 +46,6 @@ class Admin:
     def __init__(self,nome,codigo_adm):
         self.nome = nome
         self.codigo_adm = codigo_adm
+    
     
 
