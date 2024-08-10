@@ -25,11 +25,10 @@ while True:
             menu_loja()
             op_comprador = int(input('Escolha uma opção: '))
             if op_comprador == 1:
-                os.system("cls")
+                limpa_tela()
                 Produtos.lista_produtos(produtos)
                 
             elif op_comprador == 2:
-                limpa_tela()
                 carrinho = iniciar_compra(produtos, carrinho)
             elif op_comprador == 3:
                 deletar_item(carrinho, produtos)
@@ -37,9 +36,13 @@ while True:
                 ver_carrinho(carrinho)
             elif op_comprador == 0:
                 limpa_tela()
+                cyan('Voltando...')
+                time.sleep(1)
+                limpa_tela()
                 break
             else:
-                print ('Opção Inválida')
+                limpa_tela()
+                red('> Opção Inválida')
 
     elif op == 2:
         while True:
