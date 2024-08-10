@@ -54,9 +54,11 @@ while True:
                 limpa_tela()
                 red('> Opção Inválida')
 
+    #FLUXO ADM
     elif op == 2:
+        limpa_tela()
         while True:
-            #menu_adm()
+            menu_adm()
             op_adm= int(input('Escolha uma opção: '))
             if op_adm == 1:
                 #função
@@ -64,10 +66,16 @@ while True:
             elif op_adm == 2:
                 #função
                 pass
-            elif op_adm == 99:
+            elif op_adm == 0:
+                limpa_tela()
+                purple('Voltando...')
+                time.sleep(1)
+                limpa_tela()
                 break
+
             else:
-                print ('opção Inválida')
+                limpa_tela()
+                red('> Opção Inválida')
 
     elif op == 0:
         limpa_tela()
