@@ -56,22 +56,22 @@ def ver_carrinho(carrinho):
 
 def deletar_item(carrinho, produtos):
     ver_carrinho(carrinho)
-    while True:
-        d = int(input('Escolha um item para deletar: '))
-        print(len(carrinho))
-        if d > len(carrinho):
-            limpa_tela
-            
-            ver_carrinho(carrinho)
-            red('\n> Item não encontrado no carrinho\n')
-        else:
-            break
-    qtd = carrinho[d-1].quantidade_produto
-    for p in produtos:
-        if p.nome_produto == carrinho[d-1].nome_produto:
-            estoque = int(p.quantidade_estoque)+int(qtd)
-            limpa_tela()
-            green('\n> Produto Deletado')
-            p.quantidade_estoque = estoque
-    carrinho.pop(d-1)
+    if len(carrinho) != 0:
+        while True:
+            d = int(input('Escolha um item para deletar: '))
+            print(len(carrinho))
+            if d > len(carrinho):
+                limpa_tela
+                ver_carrinho(carrinho)
+                red('\n> Item não encontrado no carrinho\n')
+            else:
+                break
+        qtd = carrinho[d-1].quantidade_produto
+        for p in produtos:
+            if p.nome_produto == carrinho[d-1].nome_produto:
+                estoque = int(p.quantidade_estoque)+int(qtd)
+                limpa_tela()
+                green('\n> Produto Deletado')
+                p.quantidade_estoque = estoque
+        carrinho.pop(d-1)
     #ver_carrinho(carrinho)

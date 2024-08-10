@@ -25,17 +25,19 @@ while True:
             menu_loja()
             op_comprador = int(input('Escolha uma opção: '))
             if op_comprador == 1:
-                os.system("cls")
+                limpa_tela()
                 Produtos.lista_produtos(produtos)
                 
             elif op_comprador == 2:
-                
                 carrinho = iniciar_compra(produtos, carrinho)
             elif op_comprador == 3:
                 deletar_item(carrinho, produtos)
             elif op_comprador == 4:
                 ver_carrinho(carrinho)
             elif op_comprador == 0:
+                limpa_tela()
+                cyan('Voltando...')
+                time.sleep(1)
                 limpa_tela()
                 break
             else:
