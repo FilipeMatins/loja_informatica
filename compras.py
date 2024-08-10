@@ -7,19 +7,19 @@ def iniciar_compra(produtos, carrinho):
     while op.upper() !='N':
         os.system("cls")
         Produtos.lista_produtos(produtos)
-        cyan('\n> Escolha seu produto da lista acima\n')
+        cyan('\n> Escolha seu produto na lista acima\n')
         while True:
-            cod_pro = int(input('Código do produto: '))
+            cod_pro = int(input(f'Código do produto: {BLUE}'))
             if cod_pro > 7 or cod_pro < 1:
                 limpa_tela()
                 red('> Código do Produto Inválido\n')
                 Produtos.lista_produtos(produtos)
             else:
                 break
-        qtd = int(input('Quantidade: '))
+        qtd = int(input(f'{RESET}Quantidade: {BLUE}'))
         while qtd > int(produtos[cod_pro-1].quantidade_estoque):
-            print('Quantidade solicitada não está disponível em estoque!!')
-            qtd = int(input('Por favor, redefina a quantidade: '))
+            red('> Quantidade solicitada não está disponível em estoque!!')
+            qtd = int(input(f'Por favor, redefina a quantidade: {BLUE}'))
         prod = produtos[cod_pro-1].nome_produto
         valor_unit = produtos[cod_pro-1].preco
         item = Itens(prod, qtd, valor_unit)
@@ -27,7 +27,7 @@ def iniciar_compra(produtos, carrinho):
         q_est = int(produtos[cod_pro-1].quantidade_estoque)
         q_est -= qtd #Baixar a quantidade em estoque
         produtos[cod_pro-1].quantidade_estoque = q_est
-        op = input('Deseja continuar (s/n): ')
+        op = input(f'{RESET}Deseja continuar (s/n): {BLUE}')
         if op == 's':
             limpa_tela()
             green('> Produto adicionado')

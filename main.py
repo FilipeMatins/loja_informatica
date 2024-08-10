@@ -15,13 +15,13 @@ with open('lista_produtos.txt', 'r', encoding='utf-8') as list_prod:
 carrinho = []
 while True:
     login()
-    op = int(input('Escolha uma opção: '))
+    op = int(input(f'Escolha uma opção: {YELLOW}'))
     #FLUXO CLIENTE
     if op == 1:
         limpa_tela()
         while True:
             menu_loja()
-            op_comprador = int(input('Escolha uma opção: '))
+            op_comprador = int(input(f'Escolha uma opção: {YELLOW}'))
             #LISTAR PRODUTOS
             if op_comprador == 1:
                 limpa_tela()
