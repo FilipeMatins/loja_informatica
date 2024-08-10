@@ -1,6 +1,7 @@
 from menu import *
 from compras import *
 from classes import *
+from adm import *
 
 #Busca de produtos no arquivo de texto
 produtos = []
@@ -61,10 +62,10 @@ while True:
             menu_adm()
             op_adm= int(input('Escolha uma opção: '))
             if op_adm == 1:
-                #função
+                Adicionar_itens()
                 pass
             elif op_adm == 2:
-                #função
+                listar()
                 pass
             elif op_adm == 0:
                 limpa_tela()
