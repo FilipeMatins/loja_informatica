@@ -1,5 +1,3 @@
-
-#import *
 from menu import *
 from compras import *
 from classes import *
@@ -14,32 +12,44 @@ with open('lista_produtos.txt', 'r', encoding='utf-8') as list_prod:
         q = dados[i+2].rstrip('\n')
         prod_atual = Produtos(n,p,q)
         produtos.append(prod_atual)
-# fluxo_principal()
 carrinho = []
 while True:
     login()
     op = int(input('Escolha uma opção: '))
+    #FLUXO CLIENTE
     if op == 1:
         limpa_tela()
         while True:
             menu_loja()
             op_comprador = int(input('Escolha uma opção: '))
+            #LISTAR PRODUTOS
             if op_comprador == 1:
                 limpa_tela()
                 Produtos.lista_produtos(produtos)
-                
+            
+            #ADICIONAR PRODUTOS
             elif op_comprador == 2:
                 carrinho = iniciar_compra(produtos, carrinho)
+
+            #DELETAR PRODUTO
             elif op_comprador == 3:
                 deletar_item(carrinho, produtos)
+                
+            #VER CARRINHO
             elif op_comprador == 4:
                 ver_carrinho(carrinho)
+
+            #COMPRAR
+            elif op_comprador == 5:
+                pass
+
             elif op_comprador == 0:
                 limpa_tela()
                 cyan('Voltando...')
                 time.sleep(1)
                 limpa_tela()
                 break
+
             else:
                 limpa_tela()
                 red('> Opção Inválida')
