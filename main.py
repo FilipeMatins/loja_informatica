@@ -66,6 +66,7 @@ while True:
                 pass
             elif op_adm == 2:
                 listar()
+                # Produtos.lista_produtos(produtos)
                 pass
             elif op_adm == 0:
                 limpa_tela()

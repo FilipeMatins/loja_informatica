@@ -18,8 +18,8 @@ def menu_loja():
 
 def menu_adm():
     purple('\n>>> MENU ADMINISTRADOR <<<')
-    print(f'{YELLOW}1{RESET} - Listar Produtos')
-    print(f'{YELLOW}2{RESET} - Adicionar Produto')
+    print(f'{YELLOW}1{RESET} - Adicionar Produto')
+    print(f'{YELLOW}2{RESET} - Listar Produtos')
     print(f'{YELLOW}0{RESET} - Voltar')
 
 def limpa_tela():
