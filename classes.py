@@ -20,11 +20,11 @@ class Produtos:
         self.preco = preco
         self.quantidade_estoque = quantidade_estoque
 
-    def editar_produto(self,new_nome_produto,new_preco,new_quantidade,):
-        self.new_nome = self.nome_produto
-        self.new_preco = self.preco
-        self.new_quantidade = self.quantidade_estoque
-    
+    def editar_produto(self,new_nome,new_preco,new_quantidade,):
+        self.nome_produto = new_nome
+        self.preco = new_preco
+        self.quantidade_estoque = new_quantidade
+            
     def lista_produtos(produtos):
         cod = 1
         green('CÓDIGO  QT. EST.  PRODUTO                 PREÇO')
