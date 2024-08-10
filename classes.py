@@ -32,6 +32,7 @@ class Produtos:
         for p in produtos:
             print(f'{BLUE}{cod:^7}{RESET} {p.quantidade_estoque:^9} {p.nome_produto:<23} R$ {float(p.preco):.2f}')
             cod += 1
+        print('\n')
 
 class Cliente:
     nome = ''

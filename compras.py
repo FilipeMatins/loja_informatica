@@ -7,7 +7,7 @@ def iniciar_compra(produtos, carrinho):
     while op.upper() !='N':
         os.system("cls")
         Produtos.lista_produtos(produtos)
-        cyan('\n> Escolha seu produto na lista acima\n')
+        cyan('> Escolha seu produto na lista acima\n')
         while True:
             cod_pro = int(input(f'Código do produto: {BLUE}'))
             if cod_pro > 7 or cod_pro < 1:
@@ -28,11 +28,17 @@ def iniciar_compra(produtos, carrinho):
         q_est -= qtd #Baixar a quantidade em estoque
         produtos[cod_pro-1].quantidade_estoque = q_est
         op = input(f'{RESET}Deseja continuar (s/n): {BLUE}')
-        if op == 's':
+        if op != 'n':
             limpa_tela()
-            green('> Produto adicionado')
+            green('> Produto adicionado no carrinho')
+            time.sleep(1.5)
+        
+        else:
+            limpa_tela()
+            green('Carregando carrinho...')
             time.sleep(1)
         ver_carrinho(carrinho)
+
     return carrinho
 
 def ver_carrinho(carrinho):
@@ -40,7 +46,7 @@ def ver_carrinho(carrinho):
     if len(carrinho) == 0:
         green('> O carrinho ainda está vazio')
     else:
-        print(50*'-')
+        print(f'{RESET}{50*'-'}')
         green('               CARRINHO DE COMPRAS:')
         print(50*'-')
         cyan('Item  Qtd. Produto                 Valor unit.  Valor Total')
@@ -60,7 +66,7 @@ def deletar_item(carrinho, produtos):
         while True:
             d = int(input('Escolha um item para deletar: '))
             print(len(carrinho))
-            if d > len(carrinho):
+            if d > len(carrinho) or d <= -1:
                 limpa_tela
                 ver_carrinho(carrinho)
                 red('\n> Item não encontrado no carrinho\n')
