@@ -62,11 +62,10 @@ while True:
             menu_adm()
             op_adm= int(input('Escolha uma opção: '))
             if op_adm == 1:
-                Adicionar_itens()
+                Adicionar_itens(produtos)
                 pass
             elif op_adm == 2:
-                listar()
-                # Produtos.lista_produtos(produtos)
+                Produtos.lista_produtos(produtos)
                 pass
             elif op_adm == 0:
                 limpa_tela()
