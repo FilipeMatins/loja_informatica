@@ -10,12 +10,13 @@ def iniciar_compra(produtos, carrinho):
         cyan('> Escolha seu produto na lista acima\n')
         while True:
             cod_pro = int(input(f'Código do produto: {BLUE}'))
-            if cod_pro > 7 or cod_pro < 1:
+            if cod_pro > len(produtos) or cod_pro < 1:
                 limpa_tela()
                 red('> Código do Produto Inválido\n')
                 Produtos.lista_produtos(produtos)
             else:
                 break
+        print(f'\n{BLUE}Produto selecionado: {RESET}{produtos[cod_pro-1].nome_produto}')
         qtd = int(input(f'{RESET}Quantidade: {BLUE}'))
         while qtd > int(produtos[cod_pro-1].quantidade_estoque):
             red('> Quantidade solicitada não está disponível em estoque!!')
@@ -65,8 +66,7 @@ def deletar_item(carrinho, produtos):
     if len(carrinho) != 0:
         while True:
             d = int(input('Escolha um item para deletar: '))
-            print(len(carrinho))
-            if d > len(carrinho) or d <= -1:
+            if d > len(carrinho) or d <= 0:
                 limpa_tela
                 ver_carrinho(carrinho)
                 red('> Item não encontrado no carrinho\n')
@@ -77,7 +77,7 @@ def deletar_item(carrinho, produtos):
             if p.nome_produto == carrinho[d-1].nome_produto:
                 estoque = int(p.quantidade_estoque)+int(qtd)
                 limpa_tela()
-                green('> Produto Deletado\n')
+                print(f'{GREEN}> {BLUE}{carrinho[d-1].nome_produto} {GREEN}Deletado do carrinho\n{RESET}')
                 p.quantidade_estoque = estoque
         carrinho.pop(d-1)
     #ver_carrinho(carrinho)
