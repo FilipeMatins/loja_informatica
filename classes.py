@@ -1,9 +1,10 @@
 from cor import *
+from api import *
 
 class Itens:
-    nome_produto = ''
-    quantidade_produto = ''
-    valor_produto = float
+    nome_produto: str
+    quantidade_produto: str
+    valor_produto: float
 
     def __init__(self,nome_produto,quantidade_produto,valor_produto):
         self.nome_produto = nome_produto   
@@ -11,20 +12,29 @@ class Itens:
         self.valor_produto = valor_produto
 
 class Produtos:
-    nome_produto = ''
-    preco = float
-    quantidade_estoque = int
+    nome_produto:str
+    preco: float
+    quantidade_estoque: int
+    id:str
 
     def __init__(self,nome_produto,preco,quantidade_estoque):
         self.nome_produto = nome_produto
         self.preco = preco
         self.quantidade_estoque = quantidade_estoque
 
-    def editar_produto(self,new_nome,new_preco,new_quantidade,):
-        self.nome_produto = new_nome
-        self.preco = new_preco
-        self.quantidade_estoque = new_quantidade
-            
+    def editar_produto(p, produtos):
+        np = input(f"Produto: {produtos[p].nome_produto}\nDigite um novo nome ou <ENTER> para manter -->")
+        pp = input(f"Preço atual R$ {produtos[p].preco}\nDigite um novo preço ou <ENTER> para manter -->")
+        qe = input(f"Quantidade em estoque: {produtos[p].quantidade_estoque}\nDigite uma nova quantidade ou <ENTER> para manter -->")
+        if np != '':
+            produtos[p].nome_produto = np
+        if pp != '':
+            produtos[p].preco = float(pp)
+        if qe != '':
+            produtos[p].quantidade_estoque = int(qe)
+        id = produtos[p].id
+        produto_edit = {"produto":produtos[p].nome_produto, "preco":produtos[p].preco, "estoque":produtos[p].quantidade_estoque}
+        editar_produto_db(id, produto_edit)             
     def lista_produtos(produtos):
         cod = 1
         green('CÓDIGO  QT. EST.  PRODUTO                 PREÇO')
@@ -34,19 +44,35 @@ class Produtos:
             cod += 1
         print('\n')
 
-class Cliente:
-    nome = ''
+    def salva_produto(n,p,q):
+        print(n, p, q)
+        produto_atual = {"produto":n, "preco":p, "estoque":q}
+        cria_produto(produto_atual)
 
-    def __init__(self,nome):
+class Cliente:
+    nome: str
+    usuario: str
+    senha: str
+    def __init__(self,nome, usuario, senha):
         self.nome = nome
+        self.usuario = usuario
+        self.senha = senha
 
 class Admin:
-    nome = ''
-    codigo_adm = int
-
-    def __init__(self,nome,codigo_adm):
+    nome: str
+    usuario: str
+    senha: str
+    def __init__(self,nome, usuario, senha):
         self.nome = nome
-        self.codigo_adm = codigo_adm
-    
-    
+        self.usuario = usuario
+        self.senha = senha
 
+class Compra:
+    itens: list
+    valor:float
+    cliente:Cliente
+    def __init__(self, cliente, itens, valor):
+        self.cliente = cliente
+        self.itens = itens
+        self.valor = valor
+    

@@ -2,17 +2,21 @@ from menu import *
 from compras import *
 from classes import *
 from adm import *
+from api import *
+import requests
 
 #Busca de produtos no arquivo de texto
 produtos = []
-with open('lista_produtos.txt', 'r', encoding='utf-8') as list_prod:
-    dados = list_prod.readlines()
-    for i in range(0, len(dados), 3):
-        n = dados[i].rstrip('\n')
-        p = dados[i+1].rstrip('\n')
-        q = dados[i+2].rstrip('\n')
-        prod_atual = Produtos(n,p,q)
-        produtos.append(prod_atual)
+lista_prod = requests.get("https://loja-virtual-145-default-rtdb.firebaseio.com/.json")
+lista_prod = lista_prod.json()
+for k in lista_prod.keys():
+    k
+    n = lista_prod[k]["produto"]
+    p = lista_prod[k]["preco"]
+    e = lista_prod[k]["estoque"]
+    prod_atual = Produtos(n,p,e)
+    prod_atual.id = k
+    produtos.append(prod_atual)
 carrinho = []
 while True:
     login()
@@ -63,9 +67,11 @@ while True:
             op_adm= int(input('Escolha uma opção: '))
             if op_adm == 1:
                 Adicionar_itens(produtos)
-                pass
             elif op_adm == 2:
                 Produtos.lista_produtos(produtos)
+            elif op_adm == 3:
+                editar_produto(produtos)
+            elif op_adm == 4:
                 pass
             elif op_adm == 0:
                 limpa_tela()
