@@ -8,4 +8,4 @@ def cria_produto(p):
 def editar_produto_db(id, prod):
     url1 = url+id+'.json'
     requests.patch(url1, json=prod)
-    
+#Testar push
