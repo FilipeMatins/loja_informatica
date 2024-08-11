@@ -18,6 +18,8 @@ for k in lista_prod.keys():
     prod_atual.id = k
     produtos.append(prod_atual)
 carrinho = []
+
+limpa_tela()
 while True:
     login()
     op = int(input(f'Escolha uma opção: {YELLOW}'))
@@ -64,11 +66,12 @@ while True:
         limpa_tela()
         while True:
             menu_adm()
-            op_adm= int(input('Escolha uma opção: '))
+            op_adm= int(input(f'Escolha uma opção: {YELLOW}'))
             if op_adm == 1:
-                Adicionar_itens(produtos)
-            elif op_adm == 2:
+                limpa_tela()
                 Produtos.lista_produtos(produtos)
+            elif op_adm == 2:
+                Adicionar_itens(produtos)
             elif op_adm == 3:
                 editar_produto(produtos)
             elif op_adm == 4:
