@@ -2,18 +2,21 @@ from menu import *
 from classes import *
 import time
 import os
+
+#           INICIAR COMPRA      #
+
 def iniciar_compra(produtos, carrinho):
     op = 's'
     while op.upper() !='N':
         os.system("cls")
-        Produtos.lista_produtos(produtos)
+        Produtos.lista_produto(produtos)
         cyan('> Escolha seu produto na lista acima\n')
         while True:
             cod_pro = int(input(f'Código do produto: {BLUE}'))
-            if cod_pro > 7 or cod_pro < 1:
+            if cod_pro > len(produtos) or cod_pro < 1:
                 limpa_tela()
                 red('> Código do Produto Inválido\n')
-                Produtos.lista_produtos(produtos)
+                Produtos.lista_produto(produtos)
             else:
                 break
         qtd = int(input(f'{RESET}Quantidade: {BLUE}'))
@@ -25,8 +28,10 @@ def iniciar_compra(produtos, carrinho):
         item = Itens(prod, qtd, valor_unit)
         carrinho.append(item)
         q_est = int(produtos[cod_pro-1].quantidade_estoque)
-        q_est -= qtd #Baixar a quantidade em estoque
+        q_est -= qtd
         produtos[cod_pro-1].quantidade_estoque = q_est
+        prod = {"estoque":produtos[cod_pro-1].quantidade_estoque}
+        editar_produto_db(produtos[cod_pro-1].id, prod)
         op = input(f'{RESET}Deseja continuar (s/n): {BLUE}')
         if op != 'n':
             limpa_tela()
@@ -65,7 +70,6 @@ def deletar_item(carrinho, produtos):
     if len(carrinho) != 0:
         while True:
             d = int(input('Escolha um item para deletar: '))
-            print(len(carrinho))
             if d > len(carrinho) or d <= -1:
                 limpa_tela
                 ver_carrinho(carrinho)
@@ -76,8 +80,14 @@ def deletar_item(carrinho, produtos):
         for p in produtos:
             if p.nome_produto == carrinho[d-1].nome_produto:
                 estoque = int(p.quantidade_estoque)+int(qtd)
+                id = p.id
+                prod = {"estoque":estoque}
+                editar_produto_db(id, prod)
                 limpa_tela()
                 green('\n> Produto Deletado')
                 p.quantidade_estoque = estoque
         carrinho.pop(d-1)
+
+def finalizar_compra(carrinho):
+    pass
     #ver_carrinho(carrinho)

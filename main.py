@@ -3,6 +3,7 @@ from compras import *
 from classes import *
 from adm import *
 from api import *
+from time import sleep
 import requests
 
 #Busca de produtos no arquivo de texto
@@ -30,7 +31,7 @@ while True:
             #LISTAR PRODUTOS
             if op_comprador == 1:
                 limpa_tela()
-                Produtos.lista_produtos(produtos)
+                Produtos.lista_produto(produtos)
             
             #ADICIONAR PRODUTOS
             elif op_comprador == 2:
@@ -68,11 +69,14 @@ while True:
             if op_adm == 1:
                 Adicionar_itens(produtos)
             elif op_adm == 2:
-                Produtos.lista_produtos(produtos)
+                Produtos.lista_produto(produtos)
             elif op_adm == 3:
                 editar_produto(produtos)
             elif op_adm == 4:
-                pass
+                deletar_produto(produtos)
+                sleep(1)
+                os.system("cls")
+                Produtos.lista_produto(produtos)
             elif op_adm == 0:
                 limpa_tela()
                 purple('Voltando...')

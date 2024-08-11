@@ -34,8 +34,9 @@ class Produtos:
             produtos[p].quantidade_estoque = int(qe)
         id = produtos[p].id
         produto_edit = {"produto":produtos[p].nome_produto, "preco":produtos[p].preco, "estoque":produtos[p].quantidade_estoque}
-        editar_produto_db(id, produto_edit)             
-    def lista_produtos(produtos):
+        editar_produto_db(id, produto_edit)
+
+    def lista_produto(produtos):
         cod = 1
         green('CÓDIGO  QT. EST.  PRODUTO                 PREÇO')
         print(50*'-')
@@ -49,6 +50,10 @@ class Produtos:
         produto_atual = {"produto":n, "preco":p, "estoque":q}
         cria_produto(produto_atual)
 
+    def delete_prod_lista(p, produtos):
+        id = produtos[p].id
+        produtos.pop(p)
+        delete_prod_db(id)
 class Cliente:
     nome: str
     usuario: str
