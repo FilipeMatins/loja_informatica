@@ -5,6 +5,8 @@ def login():
     yellow('\n>>> MENU PRINCIPAL <<<')
     print(f'{YELLOW}1{RESET} - Cliente')
     print(f'{YELLOW}2{RESET} - ADM')
+    print(f'{YELLOW}3{RESET} - CADASTRAR CLIENTE')
+    print(f'{YELLOW}4{RESET} - LISTAR CLIENTES')
     print(f'{YELLOW}0{RESET} - SAIR')
 
 def menu_loja():
@@ -22,7 +24,12 @@ def menu_adm():
     print(f'{YELLOW}2{RESET} - Listar Produtos')
     print(f'{YELLOW}3{RESET} - Editar Produto')
     print(f'{YELLOW}4{RESET} - Deletar Produto')
+    print(f'{YELLOW}5{RESET} - Relatório de vendas')
     print(f'{YELLOW}0{RESET} - Voltar')
 
+def menu_vendas():
+    purple('\n>>> TIPO DE RELATÓRIO <<<')
+    print(f'{YELLOW}1{RESET} - Por Vendas')
+    print(f'{YELLOW}2{RESET} - Por Produtos')
 def limpa_tela():
     os.system('cls')

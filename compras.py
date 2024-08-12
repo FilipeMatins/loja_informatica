@@ -1,5 +1,6 @@
 from menu import *
 from classes import *
+from api import *
 import time
 import os
 
@@ -46,6 +47,24 @@ def iniciar_compra(produtos, carrinho):
 
     return carrinho
 
+            # FINALIZAR COMPRA #
+def finalizar_compra(carrinho, nome):
+    os.system("cls")
+    if len(carrinho) == 0:
+        green('> O carrinho ainda está vazio')
+    else:
+        total_carrinho = float(0)
+        item_db = []
+        for item in carrinho:
+            n = item.nome_produto
+            q = int(item.quantidade_produto)
+            v = float(item.valor_produto)
+            total_item = float(item.valor_produto)*float(item.quantidade_produto)
+            item_db.append({"quantidade":q, "nome_produto":n, "valor":v})
+            total_carrinho += total_item
+        compra = {"tipo":"compra", "itens":item_db, "total":total_carrinho, "cliente":nome}
+        salvar_compra(compra)
+        
 def ver_carrinho(carrinho):
     os.system("cls")
     if len(carrinho) == 0:
@@ -88,6 +107,6 @@ def deletar_item(carrinho, produtos):
                 p.quantidade_estoque = estoque
         carrinho.pop(d-1)
 
-def finalizar_compra(carrinho):
-    pass
-    #ver_carrinho(carrinho)
+def relatorio_vendas():
+    busca_vendas()
+    stop = input("Tecle algo para sair!")

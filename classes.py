@@ -54,23 +54,32 @@ class Produtos:
         id = produtos[p].id
         produtos.pop(p)
         delete_prod_db(id)
+
 class Cliente:
+    id:str
     nome: str
     usuario: str
     senha: str
-    def __init__(self,nome, usuario, senha):
+    tipo:str
+    def __init__(self, nome, usuario, senha, tipo):
+        self.id = id
         self.nome = nome
         self.usuario = usuario
         self.senha = senha
+        self.tipo = tipo
 
 class Admin:
+    id:str
     nome: str
     usuario: str
     senha: str
-    def __init__(self,nome, usuario, senha):
+    tipo:str
+    def __init__(self, nome, usuario, senha, tipo):
+        self.id = id
         self.nome = nome
         self.usuario = usuario
         self.senha = senha
+        self.tipo = tipo
 
 class Compra:
     itens: list
