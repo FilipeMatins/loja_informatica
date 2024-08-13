@@ -40,60 +40,79 @@ clientes = carregar_usuarios()
 
 while True:
     os.system("cls")
-    login()
+    menu_principal()
     op = int(input(f'Escolha uma opção: {YELLOW}'))
     #FLUXO CLIENTE
     if op == 1:
-        resp = login_cliente(clientes)
-        nome = resp[1]
-        if resp[0] == False and nome == '':
-            print("Usuário não cadastrado!")
+        os.system("cls")
+        log_cliente()
+        esc = int(input('Escolha uma opção: '))
+        if esc == 1:
+            resp = login_cliente(clientes)
+            nome = resp[1]
+            if resp[0] == False and nome == '':
+                limpa_tela()
+                red("> Usuário não cadastrado!")
+                sleep(2)
+                os.system("cls")
+            while resp[0]:
+                limpa_tela()
+                while resp[0]:
+                    menu_loja()
+                    op_comprador = int(input(f'Escolha uma opção: {YELLOW}'))
+                    #LISTAR PRODUTOS
+                    if op_comprador == 1:
+                        limpa_tela()
+                        Produtos.lista_produto(produtos)
+                    
+                    #ADICIONAR PRODUTOS
+                    elif op_comprador == 2:
+                        carrinho = iniciar_compra(produtos, carrinho)
+
+                    #DELETAR PRODUTO
+                    elif op_comprador == 3:
+                        deletar_item(carrinho, produtos)
+                        
+                    #VER CARRINHO
+                    elif op_comprador == 4:
+                        ver_carrinho(carrinho)
+
+                    #COMPRAR
+                    elif op_comprador == 5:
+                        finalizar_compra(carrinho, nome)
+                        os.system("cls")
+                        green("> Compra finalizada com sucesso!!!")
+                        sleep(2)
+                        carrinho.clear()
+
+                    elif op_comprador == 0:
+                        limpa_tela()
+                        cyan('Voltando...')
+                        time.sleep(1)
+                        limpa_tela()
+                        resp[0] = False
+                        op = 99
+                        break
+
+                    else:
+                        limpa_tela()
+                        red('> Opção Inválida')
+            if resp[0] == False:
+                limpa_tela()
+                red('> Usuário não cadastrado!!')
+
+
+        elif esc == 2:
+            cad_cliente()
+            clientes.clear()
+            clientes = carregar_usuarios()
+            print('Cliente cadastrado com sucesso!')
             sleep(2)
             os.system("cls")
-        while resp[0]:
-            limpa_tela()
-            while resp[0]:
-                menu_loja()
-                op_comprador = int(input(f'Escolha uma opção: {YELLOW}'))
-                #LISTAR PRODUTOS
-                if op_comprador == 1:
-                    limpa_tela()
-                    Produtos.lista_produto(produtos)
-                
-                #ADICIONAR PRODUTOS
-                elif op_comprador == 2:
-                    carrinho = iniciar_compra(produtos, carrinho)
 
-                #DELETAR PRODUTO
-                elif op_comprador == 3:
-                    deletar_item(carrinho, produtos)
-                    
-                #VER CARRINHO
-                elif op_comprador == 4:
-                    ver_carrinho(carrinho)
+        else:
+            pass
 
-                #COMPRAR
-                elif op_comprador == 5:
-                    finalizar_compra(carrinho, nome)
-                    os.system("cls")
-                    print("Compra finalizada com sucesso!!!")
-                    sleep(2)
-                    carrinho.clear()
-
-                elif op_comprador == 0:
-                    limpa_tela()
-                    cyan('Voltando...')
-                    time.sleep(1)
-                    limpa_tela()
-                    resp[0] = False
-                    op = 99
-                    break
-
-                else:
-                    limpa_tela()
-                    red('> Opção Inválida')
-        if resp[0] == False:
-            print('Usuário não cadastrado!!')
 
     #FLUXO ADM
     elif op == 2:
@@ -133,14 +152,6 @@ while True:
                 red('> Opção Inválida')
 
     elif op == 3:
-        cad_cliente()
-        clientes.clear()
-        clientes = carregar_usuarios()
-        print('Cliente cadastrado com sucesso!')
-        sleep(2)
-        os.system("cls")
-
-    elif op == 4:
         os.system("cls")
         listar_clientes(clientes)
         os.system("cls")

@@ -6,6 +6,7 @@ BLUE = '\033[34m'
 YELLOW = '\033[33m'
 CYAN = '\033[36m'
 PURPLE = '\033[35m'
+BOLD = '\033[1m'
 RESET = '\033[0m'
 
 
@@ -28,3 +29,23 @@ def cyan(txt):
 
 def purple(txt):
     print(f'{PURPLE}{txt}{RESET}')
+
+
+
+# def red(txt):
+#     return f'{RED}{txt}{RESET}'
+
+# def green(txt):
+#     return f'{GREEN}{txt}{RESET}'
+
+# def blue(txt):
+#     return f'{BLUE}{txt}{RESET}'
+
+# def yellow(txt):
+#     return f'{YELLOW}{txt}{RESET}'
+
+# def cyan(txt):
+#     return f'{CYAN}{txt}{RESET}'
+
+# def purple(txt):
+#     return f'{PURPLE}{txt}{RESET}'
