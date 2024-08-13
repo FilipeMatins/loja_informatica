@@ -10,37 +10,41 @@ def iniciar_compra(produtos, carrinho):
     op = 's'
     while op.upper() !='N':
         os.system("cls")
-        Produtos.lista_produto(produtos)
-        cyan('> Escolha seu produto na lista acima\n')
         while True:
+            Produtos.lista_produto(produtos)
+            cyan('> Escolha seu produto na lista acima\n')
             cod_pro = int(input(f'Código do produto: {BLUE}'))
-            print(f'\n{BLUE}Produto Selecionado:{RESET} {produtos[cod_pro-1].nome_produto}')
             if cod_pro > len(produtos) or cod_pro < 1:
                 limpa_tela()
                 red('> Código do Produto Inválido\n')
-                Produtos.lista_produto(produtos)
             else:
                 break
+        print(f'\n{BLUE}Produto Selecionado:{RESET} {produtos[cod_pro-1].nome_produto}')
         qtd = int(input(f'{RESET}Quantidade: {BLUE}'))
-        while qtd > int(produtos[cod_pro-1].quantidade_estoque):
-            red('> Quantidade solicitada não está disponível em estoque!!')
+        while qtd <= -1 or qtd > int(produtos[cod_pro-1].quantidade_estoque):
+            red('> Quantidade solicitada inválida!!')
             qtd = int(input(f'Por favor, redefina a quantidade: {BLUE}'))
-        prod = produtos[cod_pro-1].nome_produto
-        valor_unit = produtos[cod_pro-1].preco
-        item = Itens(prod, qtd, valor_unit)
-        carrinho.append(item)
-        q_est = int(produtos[cod_pro-1].quantidade_estoque)
-        q_est -= qtd
-        produtos[cod_pro-1].quantidade_estoque = q_est
-        prod = {"estoque":produtos[cod_pro-1].quantidade_estoque}
-        editar_produto_db(produtos[cod_pro-1].id, prod)
-        op = input(f'{RESET}Deseja continuar (s/n): {BLUE}')
-        if op != 'n':
+        # while qtd > int(produtos[cod_pro-1].quantidade_estoque):
+        #     red('> Quantidade solicitada não está disponível em estoque!!')
+        #     qtd = int(input(f'Por favor, redefina a quantidade: {BLUE}'))
+        if qtd == 0:
+            green('> Nenhum item adicionado')
+        else: 
+            prod = produtos[cod_pro-1].nome_produto
+            valor_unit = produtos[cod_pro-1].preco
+            item = Itens(prod, qtd, valor_unit)
+            carrinho.append(item)
+            q_est = int(produtos[cod_pro-1].quantidade_estoque)
+            q_est -= qtd
+            produtos[cod_pro-1].quantidade_estoque = q_est
+            prod = {"estoque":produtos[cod_pro-1].quantidade_estoque}
+            editar_produto_db(produtos[cod_pro-1].id, prod)
             limpa_tela()
-            green('> Produto adicionado no carrinho')
+            green('> Produto adicionado no carrinho\n')
             time.sleep(1.5)
         
-        else:
+        op = input(f'{RESET}Deseja continuar comprando (S/N): {BLUE}').lower()
+        if op != 's':
             limpa_tela()
             green('Carregando carrinho...')
             time.sleep(1)
@@ -90,11 +94,11 @@ def deletar_item(carrinho, produtos):
     ver_carrinho(carrinho)
     if len(carrinho) != 0:
         while True:
-            d = int(input('Escolha um item para deletar: '))
+            d = int(input('\nEscolha um item para deletar: '))
             if d > len(carrinho) or d <= 0:
                 limpa_tela
                 ver_carrinho(carrinho)
-                red('\n> Item não encontrado no carrinho\n')
+                red('\n> Item não encontrado no carrinho')
             else:
                 break
         qtd = carrinho[d-1].quantidade_produto

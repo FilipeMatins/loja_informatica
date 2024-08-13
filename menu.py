@@ -11,7 +11,6 @@ def menu_principal():
     titulo('MENU PRINCIPAL', YELLOW)
     print(f'{YELLOW}1{RESET} - Cliente')
     print(f'{YELLOW}2{RESET} - ADM')
-    print(f'{YELLOW}3{RESET} - LISTAR CLIENTES')
     print(f'{YELLOW}0{RESET} - SAIR')
 
 def log_cliente():
@@ -33,8 +32,9 @@ def menu_adm():
     print(f'{PURPLE}1{RESET} - Adicionar Produto')
     print(f'{PURPLE}2{RESET} - Listar Produtos')
     print(f'{PURPLE}3{RESET} - Editar Produto')
-    print(f'{PURPLE}4{RESET} - Deletar Produto')
+    print(f'{PURPLE}4{RESET} - Deletar Produto\n')
     print(f'{PURPLE}5{RESET} - Relatório de vendas')
+    print(f'{PURPLE}6{RESET} - Listar Clientes')
     print(f'{PURPLE}0{RESET} - Voltar')
 
 def menu_vendas():

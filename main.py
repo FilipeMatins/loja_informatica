@@ -38,8 +38,8 @@ def carregar_usuarios():
 
 clientes = carregar_usuarios()
 
+os.system("cls")
 while True:
-    os.system("cls")
     menu_principal()
     op = int(input(f'Escolha uma opção: {YELLOW}'))
     #FLUXO CLIENTE
@@ -110,7 +110,8 @@ while True:
             os.system("cls")
 
         else:
-            pass
+            limpa_tela()
+            red('> Opção Inválida')
 
 
     #FLUXO ADM
@@ -139,6 +140,11 @@ while True:
                 relatorio_vendas()
                 os.system("cls")
 
+            elif op_adm == 6:
+                os.system("cls")
+                listar_clientes(clientes)
+                os.system("cls")
+
             elif op_adm == 0:
                 limpa_tela()
                 purple('Voltando...')
@@ -149,11 +155,6 @@ while True:
             else:
                 limpa_tela()
                 red('> Opção Inválida')
-
-    elif op == 3:
-        os.system("cls")
-        listar_clientes(clientes)
-        os.system("cls")
 
     elif op == 0:
         limpa_tela()

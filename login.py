@@ -5,8 +5,8 @@ from menu import *
 def login_cliente(clientes):
     limpa_tela()
     titulo('LOGIN', CYAN)
-    u = input('Usuário: ')
-    s = input('Senha: ')
+    u = input(f'Usuário: {CYAN}')
+    s = input(f'{RESET}Senha: {CYAN}')
     flag = False
     n = ''
     for c in clientes:
