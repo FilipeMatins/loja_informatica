@@ -19,13 +19,13 @@ def log_cliente():
     print(f'{YELLOW}2{RESET} - CRIAR CONTA\n')
 
 def menu_loja():
-    cyan('\n>>> MENU DA LOJA <<<')
-    print(f'{YELLOW}1{RESET} - Listar Produtos')
-    print(f'{YELLOW}2{RESET} - Adicionar Produto')
-    print(f'{YELLOW}3{RESET} - Remover Produto')
-    print(f'{YELLOW}4{RESET} - Ver Carrinho')
-    print(f'{YELLOW}5{RESET} - Confirmar Comprar')
-    print(f'{YELLOW}0{RESET} - Voltar')
+    titulo('MENU DA LOJA', CYAN)
+    print(f'{YELLOW}1{RESET} - Listar produtos da Loja')
+    print(f'{YELLOW}2{RESET} - Adicionar produto no Carrinho')
+    print(f'{YELLOW}3{RESET} - Remover produto do Carrinho')
+    print(f'{YELLOW}4{RESET} - Ver meu Carrinho\n')
+    print(f'{YELLOW}5{RESET} - Finalizar Compra')
+    print(f'{YELLOW}0{RESET} - Voltar\n')
 
 def menu_adm():
     titulo('MENU ADMINISTRADOR', PURPLE)

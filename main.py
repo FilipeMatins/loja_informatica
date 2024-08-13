@@ -95,7 +95,7 @@ while True:
 
                     else:
                         limpa_tela()
-                        red('> Opção Inválida')
+                        red('> Opção Inválida\n')
             if resp[0] == False:
                 limpa_tela()
                 red('> Usuário não cadastrado!!')
@@ -105,7 +105,8 @@ while True:
             cad_cliente()
             clientes.clear()
             clientes = carregar_usuarios()
-            print('Cliente cadastrado com sucesso!')
+            limpa_tela()
+            green('> Conta criada com sucesso!')
             sleep(2)
             os.system("cls")
 
