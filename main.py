@@ -46,7 +46,7 @@ while True:
     if op == 1:
         os.system("cls")
         log_cliente()
-        esc = int(input('Escolha uma opção: '))
+        esc = int(input(f'Escolha uma opção: {YELLOW}'))
         if esc == 1:
             resp = login_cliente(clientes)
             nome = resp[1]
@@ -80,9 +80,8 @@ while True:
                     #COMPRAR
                     elif op_comprador == 5:
                         finalizar_compra(carrinho, nome)
+                        sleep(1)
                         os.system("cls")
-                        green("> Compra finalizada com sucesso!!!")
-                        sleep(2)
                         carrinho.clear()
 
                     elif op_comprador == 0:

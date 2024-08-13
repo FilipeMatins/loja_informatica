@@ -14,6 +14,7 @@ def iniciar_compra(produtos, carrinho):
         cyan('> Escolha seu produto na lista acima\n')
         while True:
             cod_pro = int(input(f'Código do produto: {BLUE}'))
+            print(f'\n{BLUE}Produto Selecionado:{RESET} {produtos[cod_pro-1].nome_produto}')
             if cod_pro > len(produtos) or cod_pro < 1:
                 limpa_tela()
                 red('> Código do Produto Inválido\n')
@@ -64,6 +65,7 @@ def finalizar_compra(carrinho, nome):
             total_carrinho += total_item
         compra = {"tipo":"compra", "itens":item_db, "total":total_carrinho, "cliente":nome}
         salvar_compra(compra)
+        green("> Compra finalizada com sucesso!!!")
         
 def ver_carrinho(carrinho):
     os.system("cls")
@@ -89,7 +91,7 @@ def deletar_item(carrinho, produtos):
     if len(carrinho) != 0:
         while True:
             d = int(input('Escolha um item para deletar: '))
-            if d > len(carrinho) or d <= -1:
+            if d > len(carrinho) or d <= 0:
                 limpa_tela
                 ver_carrinho(carrinho)
                 red('\n> Item não encontrado no carrinho\n')

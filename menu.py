@@ -15,8 +15,9 @@ def menu_principal():
     print(f'{YELLOW}0{RESET} - SAIR')
 
 def log_cliente():
-    print(f'{YELLOW}1{RESET} - Login')
-    print(f'{YELLOW}2{RESET} - Cadastro')
+    titulo('FAÇA SEU LOGIN', YELLOW)
+    print(f'{YELLOW}1{RESET} - LOGIN')
+    print(f'{YELLOW}2{RESET} - CRIAR CONTA\n')
 
 def menu_loja():
     cyan('\n>>> MENU DA LOJA <<<')

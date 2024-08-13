@@ -1,7 +1,10 @@
 from classes import *
 from api import *
+from menu import *
 
 def login_cliente(clientes):
+    limpa_tela()
+    titulo('LOGIN', CYAN)
     u = input('Usuário: ')
     s = input('Senha: ')
     flag = False
