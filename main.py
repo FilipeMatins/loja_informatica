@@ -96,9 +96,9 @@ while True:
                     else:
                         limpa_tela()
                         red('> Opção Inválida\n')
-            if resp[0] == False:
-                limpa_tela()
-                red('> Usuário não cadastrado!!')
+            # if resp[0] == False:
+            #     limpa_tela()
+            #     red('> Usuário não cadastrado!!')
 
 
         elif esc == 2:
