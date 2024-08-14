@@ -15,21 +15,6 @@ def delete_prod_db(id):
     url1 = url+id+'.json'
     requests.delete(url1)
 
-# def busca_id_cliente():
-#     dbusers = requests.get(url_users)
-#     dbusers = dbusers.json()
-#     clientes = []
-#     for k in dbusers.keys():
-#         if dbusers[k]["tipo"] == "c":
-#             n = dbusers[k]["nome"]
-#             u = dbusers[k]["usuario"]
-#             s = dbusers[k]["senha"]
-#             t = dbusers[k]["tipo"]
-#             cliente_atual = Cliente(n,u,s,t)
-#             cliente_atual.id = k
-#         clientes.append(cliente_atual)
-#         return clientes
-    
 def cad_cli_db(dados):
     url1 = url_users+'.json'
     requests.post(url1, json=dados)
@@ -60,4 +45,3 @@ def busca_vendas():
     print(50*'-')
     print(f'Total deste relatório........................ R$ {tot_relat:.2f}')
     print(50*'-')
-
