@@ -125,6 +125,7 @@ while True:
                 Adicionar_itens(produtos)
 
             elif op_adm == 2:
+                limpa_tela()
                 Produtos.lista_produto(produtos)
 
             elif op_adm == 3:
