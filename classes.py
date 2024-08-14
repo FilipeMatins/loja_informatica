@@ -53,7 +53,6 @@ class Produtos:
         blue(f'PREÇO: {RESET}R$ {p}')
         blue(f'QUANTIDADE: {RESET}{q}')
         green('\n> Produto adicionado com sucesso\n')
-        # print(n, p, q)
         produto_atual = {"produto":n, "preco":p, "estoque":q}
         cria_produto(produto_atual)
 

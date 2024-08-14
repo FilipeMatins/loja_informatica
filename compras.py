@@ -24,9 +24,7 @@ def iniciar_compra(produtos, carrinho):
         while qtd <= -1 or qtd > int(produtos[cod_pro-1].quantidade_estoque):
             red('> Quantidade solicitada inválida!!')
             qtd = int(input(f'Por favor, redefina a quantidade: {BLUE}'))
-        # while qtd > int(produtos[cod_pro-1].quantidade_estoque):
-        #     red('> Quantidade solicitada não está disponível em estoque!!')
-        #     qtd = int(input(f'Por favor, redefina a quantidade: {BLUE}'))
+        
         if qtd == 0:
             green('> Nenhum item adicionado')
         else: 
