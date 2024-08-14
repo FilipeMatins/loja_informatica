@@ -1,5 +1,6 @@
 from cor import *
 from api import *
+import os
 
 class Itens:
     nome_produto: str
@@ -23,9 +24,10 @@ class Produtos:
         self.quantidade_estoque = quantidade_estoque
 
     def editar_produto(p, produtos):
-        np = input(f"Produto: {produtos[p].nome_produto}\nDigite um novo nome ou <ENTER> para manter -->")
-        pp = input(f"Preço atual R$ {produtos[p].preco}\nDigite um novo preço ou <ENTER> para manter -->")
-        qe = input(f"Quantidade em estoque: {produtos[p].quantidade_estoque}\nDigite uma nova quantidade ou <ENTER> para manter -->")
+        os.system('cls')
+        np = input(f"{CYAN}Produto:{RESET} {produtos[p].nome_produto}\nDigite um novo nome ou <ENTER> para manter: ")
+        pp = input(f"{CYAN}\nPreço atual:{RESET} R$ {produtos[p].preco}\nDigite um novo preço ou <ENTER> para manter: ")
+        qe = input(f"{CYAN}\nQuantidade em estoque:{RESET} {produtos[p].quantidade_estoque}\nDigite uma nova quantidade ou <ENTER> para manter: ")
         if np != '':
             produtos[p].nome_produto = np
         if pp != '':
@@ -46,7 +48,12 @@ class Produtos:
         print('\n')
 
     def salva_produto(n,p,q):
-        print(n, p, q)
+        os.system('cls')
+        blue(f'NOME: {RESET}{n}')
+        blue(f'PREÇO: {RESET}R$ {p}')
+        blue(f'QUANTIDADE: {RESET}{q}')
+        green('\n> Produto adicionado com sucesso\n')
+        # print(n, p, q)
         produto_atual = {"produto":n, "preco":p, "estoque":q}
         cria_produto(produto_atual)
 

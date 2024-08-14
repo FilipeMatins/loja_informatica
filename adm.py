@@ -1,8 +1,9 @@
 from classes import *
+from cor import *
 import os
 
 def Adicionar_itens(produtos):
-    _nome_produto = input("Informe o nome do produto: ")
+    _nome_produto = input(f"{RESET}Informe o nome do produto: ")
     _quantidade = input("Informe quantidade:  ")
     _valor_produto = float(input("Digite o valor: "))
     add_item = Produtos(_nome_produto,_valor_produto, _quantidade)

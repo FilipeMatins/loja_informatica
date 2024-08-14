@@ -11,7 +11,7 @@ def menu_principal():
     titulo('MENU PRINCIPAL', YELLOW)
     print(f'{YELLOW}1{RESET} - Cliente')
     print(f'{YELLOW}2{RESET} - ADM')
-    print(f'{YELLOW}0{RESET} - SAIR')
+    print(f'{YELLOW}0{RESET} - SAIR\n')
 
 def log_cliente():
     titulo('FAÇA SEU LOGIN', YELLOW)

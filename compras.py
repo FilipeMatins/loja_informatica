@@ -74,7 +74,7 @@ def finalizar_compra(carrinho, nome):
 def ver_carrinho(carrinho):
     os.system("cls")
     if len(carrinho) == 0:
-        green('> O carrinho ainda está vazio')
+        green('> O carrinho ainda está vazio\n')
     else:
         print(f'{RESET}{50*'-'}')
         green('               CARRINHO DE COMPRAS:')
@@ -88,7 +88,7 @@ def ver_carrinho(carrinho):
             total_carrinho += total_item
             i +=1
         print(50*'-')
-        green(f'VALOR TOTAL................................ R$ {total_carrinho:.2f}')
+        green(f'VALOR TOTAL................................ R$ {total_carrinho:.2f}\n')
 
 def deletar_item(carrinho, produtos):
     ver_carrinho(carrinho)
@@ -109,7 +109,7 @@ def deletar_item(carrinho, produtos):
                 prod = {"estoque":estoque}
                 editar_produto_db(id, prod)
                 limpa_tela()
-                green('\n> Produto Deletado')
+                print(f'{GREEN}> {BLUE}{carrinho[d-1].nome_produto} {GREEN}Deletado do carrinho\n{RESET}')
                 p.quantidade_estoque = estoque
         carrinho.pop(d-1)
 
