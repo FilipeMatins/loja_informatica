@@ -37,6 +37,8 @@ class Produtos:
         id = produtos[p].id
         produto_edit = {"produto":produtos[p].nome_produto, "preco":produtos[p].preco, "estoque":produtos[p].quantidade_estoque}
         editar_produto_db(id, produto_edit)
+        os.system('cls')
+        green('> Produto alterado com sucesso')
 
     def lista_produto(produtos):
         cod = 1

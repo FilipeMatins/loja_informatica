@@ -95,7 +95,7 @@ while True:
 
                     else:
                         limpa_tela()
-                        red('> Opção Inválida\n')
+                        red('> Opção Inválida')
             # if resp[0] == False:
             #     limpa_tela()
             #     red('> Usuário não cadastrado!!')
@@ -133,7 +133,7 @@ while True:
 
             elif op_adm == 4:
                 deletar_produto(produtos)
-                sleep(1)
+                sleep(2.5)
                 os.system("cls")
                 Produtos.lista_produto(produtos)
 

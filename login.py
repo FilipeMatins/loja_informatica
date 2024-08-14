@@ -23,6 +23,9 @@ def cad_cliente():
     cad_cli_db(dados)
     
 def listar_clientes(clientes):
+    titulo('CLIENTES CADASTRADOS', CYAN)
+    cont = 1
     for c in clientes:
-        print(c.nome)
-    flag = input("Tecle algo para sair-->")
+        print(f'{BLUE}{cont}°{RESET} - {c.nome}')
+        cont += 1
+    flag = input("\nTecle algo para sair-->")

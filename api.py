@@ -1,4 +1,5 @@
 from classes import *
+from cor import *
 import requests
 url = "https://loja-virtual-145-default-rtdb.firebaseio.com/"
 url_users = "https://loja-senac-users-op-default-rtdb.firebaseio.com/"
@@ -32,7 +33,7 @@ def busca_vendas():
         if dbusers[k]["tipo"] == "compra":
             print(f'Cliente: {dbusers[k]["cliente"]}')
             print('Qtd. Produto                 Vl. Unit.   Vl. Total')
-            print(50*'-')
+            gray(50*'-')
             tot_compra = float(0)
             for item in dbusers[k]["itens"]:
                 tot_item = float(item["quantidade"])*float(item["valor"])

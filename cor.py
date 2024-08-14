@@ -10,7 +10,6 @@ BOLD = '\033[1m'
 GRAY = '\033[90m'
 RESET = '\033[0m'
 
-
 #COLOQUE O TEXTO NO ENTRE AS CONSTANTES PARA COLORIR
 
 def red(txt):
@@ -33,6 +32,9 @@ def purple(txt):
 
 def gray(txt):
     print(f'{GRAY}{txt}{RESET}')
+
+def bold(txt):
+    print(f'{BOLD}{txt}{RESET}')
 
 
 
